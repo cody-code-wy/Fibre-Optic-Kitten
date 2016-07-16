@@ -1,5 +1,7 @@
 #Fibre Optic Kitten
 
+[![CircleCI](https://circleci.com/gh/cody-code-wy/Fibre-Optic-Kitten.svg?style=svg)](https://circleci.com/gh/cody-code-wy/Fibre-Optic-Kitten)
+
 ## What is Fibre Optic Kitten
 
 Fibre Optic Kitten is a blogging platform that uses a git repository as the source for content instead of a database. This allows you to use a service like github as a source for content. The benefit is that content can be generated on your local machine and pushed up using git, and that other people could actually submit pull requests to update or correct old blog posts.
