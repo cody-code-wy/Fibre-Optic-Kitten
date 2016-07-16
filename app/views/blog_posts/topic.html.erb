@@ -1,0 +1,10 @@
+<% Dir.entries(@topic_root).each do |dir| %>
+  <% unless dir == '.' || dir == '..' then %>
+    <div>
+      <a href="<%= dir.to_s %>">
+        <%# .to_s stops errors about void variable %>
+        <%= dir.to_s %>
+      </a>
+    </div>
+  <% end %>
+<% end %>
