@@ -1,0 +1,10 @@
+<% Dir.entries(@post_root).each do |dir| %>
+  <% unless dir == '.' || dir == '..' then %>
+    <div>
+      <a href="posts/<%= dir.to_s %>/.">
+        <%# .to_s stops errors about void variable %>
+        <%= dir.to_s %>
+      </a>
+    </div>
+    <% end %>
+<% end %>
