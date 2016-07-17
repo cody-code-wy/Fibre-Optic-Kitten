@@ -1,0 +1,10 @@
+<% Dir.entries(@dir_to_list).each do |dir| %>
+  <% unless dir == '.' || dir == '..' then %>
+    <div>
+      <a href="<%= "#{@context}/#{dir}" %>">
+        <%# .to_s stops errors about void variable %>
+        <%= dir.to_s %>
+      </a>
+    </div>
+    <% end %>
+<% end %>
