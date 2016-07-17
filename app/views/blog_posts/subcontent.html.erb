@@ -1,13 +1,5 @@
 <% if Dir.exist?(@content_root) %>
-  <% Dir.entries(@content_root).each do |dir| %>
-    <% unless dir == '.' || dir == '..' then %>
-      <div>
-        <a href="<%= params[:subcontent] %>/<%= dir.to_s %>">
-          <%= dir.to_s %>
-        </a>
-      </div>
-    <% end %>
-  <% end %>
+  <%= render 'list_files' %>
 <% else %>
   <%= parse_markdown("#{@content_root}.md") %>
 <% end %>
