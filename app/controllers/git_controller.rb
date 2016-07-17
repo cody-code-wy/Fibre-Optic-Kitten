@@ -4,7 +4,7 @@ class GitController < ApplicationController
 
   def pull
     update_repo('blog.conf')
-    render :temp
+    render nothing: true, status: 200, content_type: 'text/html'
   end
 
 end
