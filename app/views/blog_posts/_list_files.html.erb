@@ -1,4 +1,4 @@
-<% Dir.entries(@dir_to_list).each do |dir| %>
+<% Dir.entries(@dir_to_list || dir_to_list).each do |dir| %>
   <% unless dir == '.' || dir == '..' then %>
     <div>
       <a href="<%= "#{@context}/#{dir}" %>">
