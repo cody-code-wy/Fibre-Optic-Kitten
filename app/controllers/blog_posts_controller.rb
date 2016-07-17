@@ -14,7 +14,6 @@ class BlogPostsController < ApplicationController
 
   def subcontent()
     @content_root = "#{@@post_root}/#{params[:topic]}/#{params[:subcontent]}"
-    @dir_to_list = @content_root # FIXME
     @context = params[:subcontent]
   end
 end
