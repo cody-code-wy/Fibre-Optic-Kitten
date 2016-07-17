@@ -9,4 +9,8 @@ class BlogPostsController < ApplicationController
   def topic()
     @topic_root = "#{@@post_root}/#{params[:topic]}"
   end
+
+  def subcontent()
+    @content_root = "#{@@post_root}/#{params[:topic]}/#{params[:subcontent]}"
+  end
 end
