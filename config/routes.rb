@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   get '/posts', to: 'blog_posts#index'
   get '/posts/:topic', to: 'blog_posts#topic'
+  get '/posts/:topic/:subcontent', to: 'blog_posts#subcontent' #subcontent as topics can directly contain static pages, and subtopics
 
 end
