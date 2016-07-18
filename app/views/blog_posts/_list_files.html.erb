@@ -3,7 +3,7 @@
     <div>
       <a href="<%= "#{@context}/#{dir.gsub(".md",".html")}" %>">
         <%# .to_s stops errors about void variable %>
-        <%= dir.to_s %>
+        <%= dir.gsub(".md","") %>
       </a>
     </div>
     <% end %>
