@@ -3,14 +3,13 @@ require 'git'
 require 'fileutils'
 
 class GitController < ApplicationController
-
   def pull
     update_repo('blog.conf')
     head 200, content_type: 'text/html'
   end
 
-  def clone_repo (repo, branch)
-    if Dir.exists?('blog content')
+  def clone_repo(repo, branch)
+    if File.exist?('blog content')
       FileUtils.rm_rf('blog content')
     end
     Git.clone(repo, branch, path: 'blog content/')
@@ -24,7 +23,7 @@ class GitController < ApplicationController
   def update_repo(config)
     conf = get_config(config)
     if conf
-      if File.directory?("blog content/#{conf['branch']}")
+      if Dir.exist?("blog content/#{conf['branch']}")
         pull_repo(conf['repo'], conf['branch'])
       else
         clone_repo(conf['repo'], conf['branch'])
