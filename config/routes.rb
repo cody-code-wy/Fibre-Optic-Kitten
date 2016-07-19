@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # subcontent as topics can directly contain static pages, and subtopics
   get '/posts/:topic/:subtopic/:post', to: 'blog_posts#post'
 
+  get '/git/pull', to: 'git#pull'
 end
