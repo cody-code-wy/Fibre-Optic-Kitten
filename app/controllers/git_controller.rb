@@ -9,9 +9,7 @@ class GitController < ApplicationController
   end
 
   def clone_repo(repo, branch)
-    if File.exist?('blog content')
-      FileUtils.rm_rf('blog content')
-    end
+    FileUtils.rm_rf('blog content') if File.exist?('blog content')
     Git.clone(repo, branch, path: 'blog content/')
   end
 
