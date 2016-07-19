@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 #Needed for git support
 gem 'git' # https://github.com/schacon/ruby-git
 
+#Needed for markdown support
+gem 'redcarpet'
+
 group :test do
   gem 'codeclimate-test-reporter'
 end
