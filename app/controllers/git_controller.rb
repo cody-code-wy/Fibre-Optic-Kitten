@@ -15,7 +15,7 @@ class GitController < ApplicationController
     Git.clone(repo, branch, path: 'blog content/')
   end
 
-  def pull_repo (repo, branch)
+  def pull_repo(repo, branch)
     g = Git.open("blog content/#{branch}", log: Logger.new(STDOUT))
     g.pull(repo, branch)
   end
