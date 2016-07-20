@@ -8,5 +8,6 @@ rescue StandardError => e
 end
 
 def get_repo_config(file)
-  get_config("blog content/master/#{file}")
+  config = get_config('repo.conf')
+  get_config("blog content/#{config['branch']}/#{file}")
 end
