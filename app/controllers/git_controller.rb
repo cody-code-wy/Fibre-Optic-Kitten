@@ -4,7 +4,7 @@ require 'fileutils'
 
 class GitController < ApplicationController
   def pull
-    update_repo('blog.conf')
+    update_repo('repo.conf')
     head 200, content_type: 'text/html'
   end
 
