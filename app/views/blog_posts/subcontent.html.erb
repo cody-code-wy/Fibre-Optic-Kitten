@@ -1,5 +1,7 @@
-<% if Dir.exist?(@content_root) %>
-  <%= render 'list_files', dir_to_list: @content_root %>
-<% else %>
-  <%= parse_markdown("#{@content_root}.md") %>
-<% end %>
+<div class="markdown-body">
+  <% if Dir.exist?(@content_root) %>
+    <%= render 'list_files', dir_to_list: @content_root %>
+  <% else %>
+    <%= parse_markdown("#{@content_root}.md") %>
+  <% end %>
+</div>
