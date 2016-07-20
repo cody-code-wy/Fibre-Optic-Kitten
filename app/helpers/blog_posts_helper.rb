@@ -18,6 +18,11 @@ module BlogPostsHelper
   end
 
   def markdown_options
-    {} # TODO: get these from config
+    {
+        tables: true,
+        fenced_code_blocks: true,
+        autolink: true,
+        strikethrough: true
+    }
   end
 end
