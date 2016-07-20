@@ -1,5 +1,6 @@
 class BlogPostsController < ApplicationController
   def initialize
+    super
     @post_root = 'blog content/master/Posts'
   end
 
