@@ -21,7 +21,7 @@ class GitController < ApplicationController
   def update_repo(config)
     conf = get_config(config)
     if conf
-      if Dir.directory?("blog content/#{conf['branch']}")
+      if Dir.exist?("blog content/#{conf['branch']}")
         pull_repo(conf['repo'], conf['branch'])
       else
         clone_repo(conf['repo'], conf['branch'])
