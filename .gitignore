@@ -24,4 +24,4 @@
 /blog content
 
 # Ignore blog.conf file
-blog.conf
+repo.conf
