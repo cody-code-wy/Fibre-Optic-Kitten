@@ -5,18 +5,15 @@ class BlogPostsController < ApplicationController
   end
 
   def index
-    @dir_to_list = @post_root
-    @context = 'posts'
+    @content_root = @post_root
   end
 
   def topic
-    @dir_to_list = "#{@post_root}/#{params[:topic]}"
-    @context = params[:topic]
+    @content_root = "#{@post_root}/#{params[:topic]}"
   end
 
   def subcontent
-    @content_root = "#{@post_root}/#{params[:topic]}/#{params[:subcontent]}"
-    @context = params[:subcontent]
+    @content_root = "#{@post_root}/#{params[:topic]}/#{params[:post]}"
   end
 
   def post
