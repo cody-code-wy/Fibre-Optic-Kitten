@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post '/git/pull', to: 'git#post_pull'
 
   get '/wizard', to: 'setup_wizard#setup'
+  post '/wizard', to: 'setup_wizard#submit'
 end
