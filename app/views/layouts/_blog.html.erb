@@ -1,0 +1,56 @@
+<div class="blog">
+  <div class="header">
+    <a href="/" class="small">
+      <div>
+        <%= get_short_name %>
+      </div>
+    </a>
+    <div class="title">
+      <%= get_full_name %>
+    </div>
+  </div>
+  <div class="body">
+    <div class="post-body">
+      <%= yield %>
+    </div>
+    <div class="sidebar">
+      <div class="featured">
+        <ul>
+          <li>Posts Tree</li>
+        </ul>
+      </div>
+      <div class="tree">
+        <div class="dirs">
+          <% list_dir(@post_root) do |topic| %>
+            <div class="topic <%= should_hide_topic(topic) ? 'hidden':'' %> ">
+              <div class="toggle"></div>
+              <%= get_index_link(topic) %>
+              <div class="subtopics">
+                <% list_dir("#{@post_root}/#{topic}") do |subtopic| %>
+                  <div class="topic <%= should_hide_subtopic(topic, subtopic) ? 'hidden':'' %> ">
+                    <div class="toggle"></div>
+                    <%= get_index_link(subtopic,topic) %>
+                    <div class="posts">
+                      <ul>
+                        <% list_post("#{@post_root}/#{topic}/#{subtopic}") do |post| %>
+                          <li><a href="/posts/<%= topic.to_s %>/<%= subtopic.to_s %>/<%= post.to_s %>"><%= post.to_s %></a></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <div class="posts">
+                <ul>
+                  <% list_post("#{@post_root}/#{topic}") do |post| %>
+                    <li><a href="/posts/<%= topic.to_s %>/<%= post.to_s %>"><%= post.to_s %></a></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,9 +3,14 @@ require 'pathname'
 
 module Layouts
   module ApplicationLayoutHelper
-    @config = get_config('repo.conf')
 
-    @post_root = "blog content/#{@config['branch']}/Posts"
+    def get_short_name()
+      return get_config('repo.conf')['shortname']
+    end
+
+    def get_full_name()
+      return get_config('repo.conf')['fullname']
+    end
 
     def list_dir(dir)
       Dir.entries(dir).each do |file|
@@ -16,8 +21,11 @@ module Layouts
     end
 
     def get_index_link(dir, root=nil)
+      config = get_config('repo.conf')
+
+      post_root = "blog content/#{config['branch']}/Posts"
       path = "#{"#{root}/" if root}#{dir}"
-      if File.exist?("#{@post_root}/#{path}/index.md")
+      if File.exist?("#{post_root}/#{path}/index.md")
         "<a href=\"/posts/#{path}/index.html\">#{dir}</a>".html_safe
       else
         dir
