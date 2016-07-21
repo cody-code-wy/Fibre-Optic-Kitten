@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/posts/:topic/:subtopic/:post', to: 'blog_posts#post'
 
   get '/git/pull', to: 'git#pull'
+  post '/git/pull', to: 'git#post_pull'
 end
