@@ -5,7 +5,7 @@ require 'fileutils'
 class GitController < ApplicationController
   def pull
     update_repo('repo.conf')
-    head 200, content_type: 'text/html'
+    redirect_to '/'
   end
 
   def post_pull

@@ -53,7 +53,7 @@ $(() => {
             $('.repos').empty()
             $('#github-repos').removeClass('hidden')
     
-            clearFields('github-repos')
+            scrollTo('github-repos')
     
             data.forEach((repo) => {
             $('<div>').text(repo.name).addClass("repo").data("github-url", repo.clone_url).appendTo($(".repos")).on('click', (event) => {

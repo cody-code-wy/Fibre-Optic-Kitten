@@ -11,6 +11,6 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= controller_name.include?("blog_post") ? render("layouts/blog") : yield %>
   </body>
 </html>
