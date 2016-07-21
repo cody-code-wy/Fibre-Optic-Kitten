@@ -1,0 +1,2 @@
+class SetupWizardController < ApplicationController
+end
