@@ -8,6 +8,10 @@ class GitController < ApplicationController
     head 200, content_type: 'text/html'
   end
 
+  def post_pull
+    update_repo('repo.conf')
+  end
+
   def clone_repo(repo, branch)
     FileUtils.rm_rf('blog content') if File.exists?('blog content')
     Git.clone(repo, branch, path: 'blog content/')
