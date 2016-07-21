@@ -11,5 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 %w( blog_posts setup_wizard ).each do |controller|
-  Rails.application.config.assets.precompile += [ "#{controller}.scss"]
+  Rails.application.config.assets.precompile += ["#{controller}.js", "#{controller}.scss"]
 end
