@@ -3,7 +3,7 @@
 
 body {
   background: $primary-color;
-  font-family: $main-font;
+  font-family: $main-font
 }
 
 .hidden {
@@ -50,25 +50,29 @@ body {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: auto;
   justify-content: space-between;
   align-items: center;
   background: $secondary-color;
+  border-bottom: 4px solid $button-background-color;
   color: $header-background-color;
   height: 3em;
   overflow: hidden;
   .small {
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: 1em;
-    font-weight: bold;
-    margin-left: $title-side-padding;
-    border-radius: 50%;
     background: $button-background-color;
-    color: white;
-    height: 2em;
-    width: 2em;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-left: $title-side-padding;
+    padding-right: $title-side-padding;
+    color: $button-text-color;
+    height: 100%;
+    width: auto;
+    text-decoration: none;
+    &:visited {
+      color: $button-text-color;
+    }
   }
   .title {
     font-size: $title-font-size;
@@ -96,6 +100,71 @@ body {
     padding: $title-side-padding;
     line-height: 1.3em;
     flex: 3;
+    flex-basis: auto;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: $card-background-color;
+      padding: 2em;
+      margin-bottom: 4em;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      > a, >h1 a {
+        text-align: center;
+        color: #2d9ff3; // FIXME create variable
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
+        &:hover {
+          color: #0d87e0; // FIXME create variable
+        }
+        &:visited {
+          color: #0d87e0; // FIXME create variable
+          &:hover {
+            color: #2d9ff3; // FIXME create variable
+          }
+        }
+      }
+      > h1 {
+        font-size: 1.8em;
+        text-align: left;
+        color: #2d9ff3; // FIXME create variable
+      }
+      .markdown-body {
+        text-align: left;
+        max-height: 15em;
+      }
+      .ellipsis {
+        overflow: hidden;
+        height: 200px;
+        line-height: 25px;
+        margin: 20px;
+        &:before {
+          content:"";
+          float: left;
+          width: 5px; height: 200px;
+        }
+        &:after {
+          content: "\02026";
+          box-sizing: content-box;
+          float: right; position: relative;
+          top: -25px; left: 100%;
+          width: 5em; margin-left: -5em;
+          padding-right: 5px;
+          font-size: 1.3em;
+          text-align: right;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), $card-background-color 50%, $card-background-color);
+        }
+        > *:first-child {
+          float: right;
+          width: 100%;
+          margin-left: -5px;
+        }
+      }
+    }
+
     p:first-child {
       margin-top: 0;
     }
@@ -116,24 +185,26 @@ body {
     @media screen and (max-width: $break-small) {
       flex: none;
       border-left: none;
-      border-top: 2px solid goldenrod;
+      border-top: 2px solid $button-background-color
     }
     .featured {
       ul {
         list-style: none;
         padding: 0;
-        margin: 0;
-        margin-bottom: 1.5em;
+        margin: 0 0 1.5em 0;
+        //margin-bottom: 1.5em;
       }
       li {
-        border-bottom: 1px solid grey;
-        padding-top: 10px;
-        padding-bottom: 5px;
-        padding-left: 1.5em;
-        padding-right: 1.5em;
+        border-bottom: 1px solid $sidebar-separator-color;
+        padding: 10px 1.5em 5px 1.5em;
+        //padding-top: 10px;
+        //padding-bottom: 5px;
+        //padding-left: 1.5em;
+        //padding-right: 1.5em;
         cursor: pointer;
         &:hover {
           background: $secondary-color;
+          color: $primary-color;
           a {
             color: $primary-color;
             font-weight: bold;
@@ -141,11 +212,10 @@ body {
         }
         a {
           text-decoration: none;
-          color: $sidebar-link-color;
+          color: black;
         }
       }
     }
-
     .tree {
       .toggle {
         margin-left: 0 !important;
@@ -153,20 +223,19 @@ body {
       .dirs .topic, .dirs .posts, .subtopics ul {
         margin-left: 1em;
         margin-bottom: 5px;
-        morgin-top: 5px;
+        margin-top: 5px;
       }
-
       ul {
         margin: 0;
         padding: 0;
       }
       li {
         list-style: none;
-        margin-left: 1em;
+        // margin-left: 1em;
       }
       a {
         text-decoration: none;
-        color: $sidebar-link-color;
+        color: $button-background-hover-color;
       }
     }
   }
