@@ -1,3 +1,242 @@
-// Place all the styles related to the blogPosts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "settings";
+
+body {
+  background: $primary-color;
+  font-family: $main-font
+}
+
+.hidden {
+  .subtopics {display: none;}
+  .posts {display: none;}
+  ul {display: none;}
+}
+
+.arrow-right {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: $arrow-size solid $arrow-color;
+  border-top: $arrow-size solid transparent;
+  border-bottom: $arrow-size solid transparent;
+  margin-right: 3px;
+}
+
+.arrow-down {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: $arrow-size solid $arrow-color;
+  border-left: $arrow-size solid transparent;
+  border-right: $arrow-size solid transparent;
+  margin-bottom:  $arrow-size;
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10%;
+  width: 80%;
+  height: 100%;
+}
+
+.header {
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: $secondary-color;
+  border-bottom: 4px solid $button-background-color;
+  color: $header-background-color;
+  height: 3em;
+  overflow: hidden;
+  .small {
+    display: flex;
+    justify-content: center;
+    background: $button-background-color;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-left: $title-side-padding;
+    padding-right: $title-side-padding;
+    color: $button-text-color;
+    height: 100%;
+    width: auto;
+    text-decoration: none;
+    &:visited {
+      color: $button-text-color;
+    }
+  }
+  .title {
+    font-size: $title-font-size;
+    padding-right: $title-side-padding;
+  }
+}
+
+.body {
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin-top: 1.5em;
+  flex-direction: row;
+  @media screen and (max-width: $break-small) {
+    flex-direction: column;
+  }
+  align-items: stretch;
+  .post-body {
+    width: 0;
+    margin-right: 2em;
+    background: $content-color;
+    color: $content-background-color;
+    display: flex;
+    flex-direction: column;
+    padding: $title-side-padding;
+    line-height: 1.3em;
+    flex: 3;
+    flex-basis: auto;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: $card-background-color;
+      padding: 2em;
+      margin-bottom: 4em;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      > a, >h1 a {
+        text-align: center;
+        color: #2d9ff3; // FIXME create variable
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
+        &:hover {
+          color: #0d87e0; // FIXME create variable
+        }
+        &:visited {
+          color: #0d87e0; // FIXME create variable
+          &:hover {
+            color: #2d9ff3; // FIXME create variable
+          }
+        }
+      }
+      > h1 {
+        font-size: 1.8em;
+        text-align: left;
+        color: #2d9ff3; // FIXME create variable
+      }
+      .markdown-body {
+        text-align: left;
+        max-height: 15em;
+      }
+      .ellipsis {
+        overflow: hidden;
+        height: 200px;
+        line-height: 25px;
+        margin: 20px;
+        &:before {
+          content:"";
+          float: left;
+          width: 5px; height: 200px;
+        }
+        &:after {
+          content: "\02026";
+          box-sizing: content-box;
+          float: right; position: relative;
+          top: -25px; left: 100%;
+          width: 5em; margin-left: -5em;
+          padding-right: 5px;
+          font-size: 1.3em;
+          text-align: right;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), $card-background-color 50%, $card-background-color);
+        }
+        > *:first-child {
+          float: right;
+          width: 100%;
+          margin-left: -5px;
+        }
+      }
+    }
+
+    p:first-child {
+      margin-top: 0;
+    }
+    @media screen and (max-width: $break-small) {
+      flex: none;
+      margin-right: 0;
+    }
+  }
+  .sidebar {
+    width: 0;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    background: $content-color;
+    color: $content-background-color;
+    font-size: 0.8em;
+    flex: 1;
+    @media screen and (max-width: $break-small) {
+      flex: none;
+      border-left: none;
+      border-top: 2px solid $button-background-color
+    }
+    .featured {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5em 0;
+        //margin-bottom: 1.5em;
+      }
+      li {
+        border-bottom: 1px solid $sidebar-separator-color;
+        padding: 10px 1.5em 5px 1.5em;
+        //padding-top: 10px;
+        //padding-bottom: 5px;
+        //padding-left: 1.5em;
+        //padding-right: 1.5em;
+        cursor: pointer;
+        &:hover {
+          background: $secondary-color;
+          color: $primary-color;
+          a {
+            color: $primary-color;
+            font-weight: bold;
+          }
+        }
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+    .tree {
+      .toggle {
+        margin-left: 0 !important;
+      }
+      .dirs .topic, .dirs .posts, .subtopics ul {
+        margin-left: 1em;
+        margin-bottom: 5px;
+        margin-top: 5px;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        // margin-left: 1em;
+      }
+      a {
+        text-decoration: none;
+        color: $button-background-hover-color;
+      }
+    }
+  }
+}
