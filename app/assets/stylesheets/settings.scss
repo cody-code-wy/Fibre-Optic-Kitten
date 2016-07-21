@@ -1,6 +1,16 @@
 // General
+$arrow-size: 5px;
+$title-font-size: 2em;
+$title-side-padding: 20px;
+
+$break-small: 900px;
+$break-large: 1200px;
+
 $primary-color: #f2f5f8;
 $secondary-color: #444;
+$content-color: #fcfdff;
+$content-background-color: #222;
+
 $main-font: 'PT Sans', sans-serif;
 
 // Header
@@ -21,3 +31,9 @@ $modal-shadow-color: #AAA;
 
 // Repo Highlight class
 $repos-highlight-text-color: white;
+
+// Arrow classes
+$arrow-color: black;
+
+// Sidebar
+$sidebar-link-color: black;

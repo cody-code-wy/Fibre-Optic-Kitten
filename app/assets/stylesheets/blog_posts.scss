@@ -1,3 +1,173 @@
-// Place all the styles related to the blogPosts controller here.
-// They will automatically be included in application.scss.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "settings";
+
+body {
+  background: $primary-color;
+  font-family: $main-font;
+}
+
+.hidden {
+  .subtopics {display: none;}
+  .posts {display: none;}
+  ul {display: none;}
+}
+
+.arrow-right {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: $arrow-size solid $arrow-color;
+  border-top: $arrow-size solid transparent;
+  border-bottom: $arrow-size solid transparent;
+  margin-right: 3px;
+}
+
+.arrow-down {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: $arrow-size solid $arrow-color;
+  border-left: $arrow-size solid transparent;
+  border-right: $arrow-size solid transparent;
+  margin-bottom:  $arrow-size;
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10%;
+  width: 80%;
+  height: 100%;
+}
+
+.header {
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  background: $secondary-color;
+  color: $header-background-color;
+  height: 3em;
+  overflow: hidden;
+  .small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: $title-side-padding;
+    border-radius: 50%;
+    background: $button-background-color;
+    color: white;
+    height: 2em;
+    width: 2em;
+  }
+  .title {
+    font-size: $title-font-size;
+    padding-right: $title-side-padding;
+  }
+}
+
+.body {
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin-top: 1.5em;
+  flex-direction: row;
+  @media screen and (max-width: $break-small) {
+    flex-direction: column;
+  }
+  align-items: stretch;
+  .post-body {
+    width: 0;
+    margin-right: 2em;
+    background: $content-color;
+    color: $content-background-color;
+    display: flex;
+    flex-direction: column;
+    padding: $title-side-padding;
+    line-height: 1.3em;
+    flex: 3;
+    p:first-child {
+      margin-top: 0;
+    }
+    @media screen and (max-width: $break-small) {
+      flex: none;
+      margin-right: 0;
+    }
+  }
+  .sidebar {
+    width: 0;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    background: $content-color;
+    color: $content-background-color;
+    font-size: 0.8em;
+    flex: 1;
+    @media screen and (max-width: $break-small) {
+      flex: none;
+      border-left: none;
+      border-top: 2px solid goldenrod;
+    }
+    .featured {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 1.5em;
+      }
+      li {
+        border-bottom: 1px solid grey;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        cursor: pointer;
+        &:hover {
+          background: $secondary-color;
+          a {
+            color: $primary-color;
+            font-weight: bold;
+          }
+        }
+        a {
+          text-decoration: none;
+          color: $sidebar-link-color;
+        }
+      }
+    }
+
+    .tree {
+      .toggle {
+        margin-left: 0 !important;
+      }
+      .dirs .topic, .dirs .posts, .subtopics ul {
+        margin-left: 1em;
+        margin-bottom: 5px;
+        morgin-top: 5px;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        margin-left: 1em;
+      }
+      a {
+        text-decoration: none;
+        color: $sidebar-link-color;
+      }
+    }
+  }
+}
