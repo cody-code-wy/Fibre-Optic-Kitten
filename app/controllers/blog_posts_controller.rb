@@ -5,21 +5,22 @@ class BlogPostsController < ApplicationController
   end
 
   def index
-    @dir_to_list = @post_root
-    @context = 'posts'
+    @content_root = @post_root
+    redirect_to '/wizard' unless get_config('repo.conf')
   end
 
   def topic
-    @dir_to_list = "#{@post_root}/#{params[:topic]}"
-    @context = params[:topic]
+    @content_root = "#{@post_root}/#{params[:topic]}"
+    redirect_to '/wizard' unless get_config('repo.conf')
   end
 
   def subcontent
-    @content_root = "#{@post_root}/#{params[:topic]}/#{params[:subcontent]}"
-    @context = params[:subcontent]
+    @content_root = "#{@post_root}/#{params[:topic]}/#{params[:post]}"
+    redirect_to '/wizard' unless get_config('repo.conf')
   end
 
   def post
     @content_root = "#{@post_root}/#{params[:topic]}/#{params[:subtopic]}/#{params[:post]}"
+    redirect_to '/wizard' unless get_config('repo.conf')
   end
 end

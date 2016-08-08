@@ -1,0 +1,86 @@
+<div class="head">
+  <div class="title">
+    Welcome
+  </div>
+  <div class="subtitle">
+    To Fibre Optic Kitten
+  </div>
+</div>
+
+<form method="post">
+  <!-- Blog Source -->
+  <div id="source" class="center">
+    <div class="modal">
+      <div class="instructions">
+        Lets Git started<br />
+        You can clone from any git respository, or select from Github.
+      </div>
+      <div class="buttons">
+        <div id="clone-url" class="button" role="button">
+          Clone URL
+        </div>
+        <div id="github" class="button" role="button">
+          GitHub Repo
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clone URL -->
+  <div id="clone" class="center hidden">
+    <div class="modal">
+      <div class="instructions">
+        Git repository url
+      </div>
+      <input type="text" name="clone-url" placeholder="Repository URL" \>
+      <div class="continue-button" role="button"></div>
+    </div>
+  </div>
+
+  <!-- Github Username -->
+  <div id="github-username" class="center hidden">
+    <div class="modal">
+      <div class="instructions">
+        Enter your Github Username
+      </div>
+      <input type="text" name="github-uname" placeholder="Github Username" \>
+      <div class="continue-button" role="button"></div>
+    </div>
+  </div>
+
+  <!-- Github Repos -->
+  <div id="github-repos" class="center hidden">
+    <div class="modal">
+      <div class="instructions">
+        Select your Repository
+      </div>
+      <div class="repos">
+      </div>
+      <input type="hidden" name="github-url" value="">
+    </div>
+  </div>
+
+  <!-- Blog Steup -->
+  <div id="blog" class="center hidden">
+    <div class="modal">
+      <div class="instructions">
+        Set the blog name
+      </div>
+      <input type="text" name="blog-short" placeholder="Short Name (5 chars)">
+      <input type="text" name="blog-name" placeholder="Full Name"h>
+      <div class="continue-button" role="button"></div>
+    </div>
+  </div>
+
+  <!-- Username / Password -->
+  <div id="account" class="center hidden">
+    <div class="modal">
+      <div class="instructions">
+        Set the username and password for the administrative account.
+      </div>
+      <input type="text" name="user-name" placeholder="Username">
+      <input type="password" name="password" placeholder="Password"h>
+      <div class="continue-button" role="button"></div>
+    </div>
+  </div>
+</form>

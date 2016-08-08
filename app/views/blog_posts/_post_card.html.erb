@@ -1,0 +1,9 @@
+<div class="card">
+  <h1><a href="<%= get_link(local_assigns[:file], @post_root) %>"><%= get_basename(local_assigns[:file]) %></a></h1> <!-- MAKE LINK -->
+  <div class="ellipsis">
+    <div class="markdown-body">
+      <%= yield %>
+    </div>
+  </div>
+  <a href="<%= get_link(local_assigns[:file], @post_root) %>">Continue Reading</a>
+</div>

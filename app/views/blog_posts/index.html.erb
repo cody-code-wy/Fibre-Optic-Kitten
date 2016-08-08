@@ -1,1 +1,5 @@
-<%= render 'list_files' %>
+<% get_recent_posts(@content_root) do |file| %>
+  <%= render 'post_card', file: file do %>
+    <%= parse_markdown(file) %>
+  <% end %>
+<% end %>
